@@ -1,0 +1,86 @@
+﻿@model TicketHandler.Models.DataModels.WorkLog
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>WorkLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WLNumber" class="control-label"></label>
+                <input asp-for="WLNumber" class="form-control" />
+                <span asp-validation-for="WLNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeFrom" class="control-label"></label>
+                <input asp-for="DateTimeFrom" class="form-control" />
+                <span asp-validation-for="DateTimeFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeTo" class="control-label"></label>
+                <input asp-for="DateTimeTo" class="form-control" />
+                <span asp-validation-for="DateTimeTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusUnit" class="control-label"></label>
+                <input asp-for="BusUnit" class="form-control" />
+                <span asp-validation-for="BusUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncidentId" class="control-label"></label>
+                <select asp-for="IncidentId" class ="form-control" asp-items="ViewBag.IncidentId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FEEntersSite" class="control-label"></label>
+                <input asp-for="FEEntersSite" class="form-control" />
+                <span asp-validation-for="FEEntersSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FEEExitsSite" class="control-label"></label>
+                <input asp-for="FEEExitsSite" class="form-control" />
+                <span asp-validation-for="FEEExitsSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalHours" class="control-label"></label>
+                <input asp-for="TotalHours" class="form-control" />
+                <span asp-validation-for="TotalHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkLogStatusId" class="control-label"></label>
+                <select asp-for="WorkLogStatusId" class ="form-control" asp-items="ViewBag.WorkLogStatusId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

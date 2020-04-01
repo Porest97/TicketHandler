@@ -1,0 +1,59 @@
+﻿@model TicketHandler.Models.ViewModels.DataViewModel
+@{
+    ViewData["Title"] = "ListCompanies";
+}
+
+<h1>Companies</h1>
+
+<a class="btn btn-sm btn-success" asp-controller="Companies" asp-action="Create">Create new company</a>
+<a class="btn btn-sm btn-success" asp-controller="Companies" asp-action="ListCompanies">Back to companies list</a>
+
+
+<div class="badge">
+    <table class="table table-responsive-sm table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companies[0].Country)
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Companies.OrderBy(p => p.CompanyName))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+
+                    <td>
+                        <a class="btn btn-sm btn-success" asp-controller="Companies" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-success" asp-controller="Companies" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-controller="Companies" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
